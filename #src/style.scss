@@ -1,0 +1,192 @@
+@import "./reset.scss";
+$color-white: #e3e8ee;
+$color-black: #111729;
+$color-gray: #97a3b6;
+$color-dark-gray: #20293a;
+$color-blue: #3662e3;
+$bg-color: #111729;
+$text-styles: (
+  title-text: (
+    font-size: 1.5rem,
+    font-weight: 500,
+    color: $color-white,
+  ),
+  body-text: (
+    font-size: 1rem,
+    font-weight: 400,
+    color: $color-white,
+  ),
+  small-text: (
+    font-size: 0.75rem,
+    font-weight: 400,
+    color: $color-white,
+  ),
+);
+@mixin text-format($type) {
+  font-size: map-get(map-get($text-styles, $type), font-size);
+  font-weight: map-get(map-get($text-styles, $type), font-weight);
+  color: map-get(map-get($text-styles, $type), color);
+}
+.wrapper {
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: $bg-color;
+  font-family: "Outfit", sans-serif;
+  padding: 1rem;
+}
+.header {
+  position: relative;
+  background-image: url(../img/hero-image-movie-search.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-height: 20.875rem;
+  margin: -1rem -1rem 72px -1rem;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transform: translateY(50%);
+}
+.search-form {
+  bottom: -50%;
+  transform: translateY(50%);
+}
+.search-input {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1.25rem 1.75rem;
+  border-radius: 1rem;
+  background-color: $color-dark-gray;
+  max-width: 45%;
+  margin: auto;
+  &:focus-within {
+    box-shadow: 0 0 0 2px rgba($color-blue, 1);
+  }
+  input {
+    @include text-format(body-text);
+    flex: 1;
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+    &::placeholder {
+      @include text-format(body-text);
+    }
+  }
+}
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.movie-card {
+  padding: 1.5rem;
+  border: 2px solid $color-dark-gray;
+  border-radius: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  max-width: 60%;
+  opacity: 1;
+  &__img-box {
+    border-radius: 1rem;
+    overflow: hidden;
+    max-height: 100%;
+    min-width: 10.25rem;
+  }
+  &--disable {
+    opacity: 0;
+  }
+}
+.movie-img {
+  display: block;
+  min-width: 10.25rem;
+  height: 100%;
+  object-fit: cover;
+}
+.movie-title {
+  @include text-format(title-text);
+  margin-bottom: 0.75rem;
+}
+.tags-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  &__item {
+    @include text-format(small-text);
+    padding: 0.25rem 0.75rem;
+    background-color: $color-dark-gray;
+    border-radius: 1rem;
+  }
+}
+.movie-description {
+  @include text-format(body-text);
+  margin-bottom: 1.5rem;
+}
+.movie-meta {
+  &__item {
+    @include text-format(body-text);
+    font-weight: 500;
+    color: $color-gray;
+    margin-bottom: 0.5rem;
+    span {
+      color: $color-white;
+    }
+    #votes {
+      color: $color-gray;
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+.error-box {
+  @include text-format(body-text);
+  color: $color-gray;
+  font-weight: 500;
+  transform: translate(-350%, 25%);
+  opacity: 0;
+  &--active {
+    opacity: 1;
+  }
+}
+@media (min-width: 860px) and (max-width: 1279px) {
+  .movie-card {
+    max-width: 85%;
+  }
+  .search-input {
+    max-width: 60%;
+  }
+}
+@media (min-width: 720px) and (max-width: 859px) {
+  .movie-card {
+    max-width: 85%;
+    flex-direction: column;
+    &__img-box {
+      margin: auto;
+      max-height: 100%;
+      min-width: 10.25rem;
+    }
+  }
+  .movie-img {
+    min-width: 10.25rem;
+    height: 100%;
+  }
+  .search-input {
+    max-width: 60%;
+  }
+}
+@media (max-width: 720px) {
+  .movie-card {
+    max-width: 95%;
+    flex-direction: column;
+    &__img-box {
+      margin: auto;
+    }
+  }
+  .search-input {
+    max-width: 95%;
+  }
+}
