@@ -144,9 +144,9 @@ $text-styles: (
 }
 .error-box {
   @include text-format(body-text);
+  position: absolute;
   color: $color-gray;
   font-weight: 500;
-  transform: translate(-350%, 25%);
   opacity: 0;
   &--active {
     opacity: 1;
