@@ -1,0 +1,21 @@
+{
+  "name": "movie-search-app",
+  "version": "1.0.0",
+  "description": "- [General info](#general-info) ⭐\r - [Preview](#Illustrations) 🖼️\r - [Technologies](#technologies) 🛠️",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandrLebedenko/Movie-Search-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexandrLebedenko/Movie-Search-App/issues"
+  },
+  "homepage": "https://github.com/AlexandrLebedenko/Movie-Search-App#readme"
+}
