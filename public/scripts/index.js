@@ -39,7 +39,7 @@ function updateTags(genre) {
 }
 function getData(movieName) {
   if (!movieName.trim()) return;
-  fetch(`https://movie-search-app.vercel.app/api/movie?t=${encodeURIComponent(movieName)}`)
+  fetch("movie-search-app-git-master-alexandrlebedenkos-projects.vercel.app/api/movie?t=" + encodeURIComponent(movieName))
     .then((response) => response.json())
     .then((data) => {
       if (data.Response === "True") {
